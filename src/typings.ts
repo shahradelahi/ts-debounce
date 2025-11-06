@@ -34,7 +34,7 @@ interface DebouncedMethods<F extends AnyFunction> {
 }
 
 export type DebouncedFunction<F extends AnyFunction> = DebouncedMethods<F> & {
-  (...args: Parameters<F>): F extends AnyFunction<Promise<any>>
-    ? Promise<ReturnType<F>>
-    : ReturnType<F> | undefined;
+  (
+    ...args: Parameters<F>
+  ): F extends AnyFunction<Promise<any>> ? Promise<ReturnType<F>> : ReturnType<F> | undefined;
 };
